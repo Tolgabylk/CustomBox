@@ -21,3 +21,6 @@ $db->addConnection(parse_ini_file('src/conf/db.conf.ini'));
 
 $db->setAsGlobal();
 $db->bootEloquent();
+
+// Affichage de la landing page
+$app->get('/home', \mywishlist\controleur\ControlleurAffichage::class.':afficherAccueil')->setName('Accueil');
