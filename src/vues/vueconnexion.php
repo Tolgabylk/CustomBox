@@ -215,6 +215,7 @@ class VueConnexion{
                 
             </form>
             <p>Sinscrire ? <a href="../CustomBox/inscription">Inscrivez-vous</a></p>
+            <p><a href="../CustomBox/home">Accueil</a></p>
         </div>
     </div>';
         return $content;
@@ -434,6 +435,7 @@ input {
             </form>
              <br><br> 
             <p>Déjà inscrit ? <a href="../CustomBox/connexion">Connectez-vous</a></p>     
+            <p><a href="../CustomBox/home">Accueil</a></p>
         </div>
     </div>';
         return $content;

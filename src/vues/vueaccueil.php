@@ -339,6 +339,8 @@ class vueaccueil
 
         }
 
+        $content.='';
+
 
         return $content;
     }

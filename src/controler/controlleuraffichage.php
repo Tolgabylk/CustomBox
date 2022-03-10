@@ -75,47 +75,16 @@ class controlleuraffichage
         return $reponse;
     }
 
-    public function creerMessage(Request $rq, Response $rs, $args) : Response
-    {
-        $vue = new VueCreationListe([], $this->container);
 
-        // recuperation du commentaire dans le POST
-        $commFromPOST = $_POST["Message"];
-
-        $numListeFromPOST = $args['token'];
+ public function afficherProduits(Request $requete,Response $response){
+     $vue = new VueProduit(array(0));
+     $html = $vue->render(1);
+     $response->getBody()->write($html);
+     return $response;
 
 
-        // creation d'un nv commentaire a inserer dans la database
-        $comm = new Commentaire();
-        $comm->dateCom = date('Y-m-d h:i:s', time());
 
-        $comm->no = $numListeFromPOST;
-        $comm->commentaire = $commFromPOST;
-        // insere le nouveau com dans la bdd
-        $comm->save();
-
-        return $this->afficherUneListe($rq,$rs,$args);
-    }
-
-    public function verifierReservation(Request $request, Response $response, $args)
-    {
-        if (empty($_SESSION['user'])|| $_SESSION['user']==-1) {
-            print_r("salut");
-            return $response->withRedirect('../CustomBox/connexion?res=Vous devez vous connecter');
-
-        }
-
-        $item = Item::where('id', '=', $args['id'])->first();
-        $list = Liste::where('no', '=', $item['liste_id'])->first();
-
-        $item->reservations = $_SESSION['user'];
-
-        $item->save();
-        $args['id'] = $item->id;
-
-        return $response->withRedirect('../CustomBox/item/' . $item['id'] . '?res=reservation%20Effectué');
-
-    }
+ }
 
 
 }
