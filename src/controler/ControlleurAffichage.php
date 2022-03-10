@@ -74,5 +74,60 @@ class ControlleurAffichage
         return $rs;
     }
 
+    public function reserverUnItem(Request $requete, Response $reponse): Response
+    {
+        $vue = new VueReservation(array(0));
+        $html = $vue->render(1);
+        //$rs->getBody()->write("Liste des listes :");
+        $reponse->getBody()->write($html);
+        return $reponse;
+    }
+
+    public function creerMessage(Request $rq, Response $rs, $args) : Response
+    {
+        $vue = new VueCreationListe([], $this->container);
+
+        // recuperation du commentaire dans le POST
+        $commFromPOST = $_POST["Message"];
+
+        $numListeFromPOST = $args['token'];
+
+
+        // creation d'un nv commentaire a inserer dans la database
+        $comm = new Commentaire();
+        $comm->dateCom = date('Y-m-d h:i:s', time());
+
+        $comm->no = $numListeFromPOST;
+        $comm->commentaire = $commFromPOST;
+        // insere le nouveau com dans la bdd
+        $comm->save();
+
+        //$html = $vue->render(2);
+        //$rs->getBody()->write($html);
+        //return $rs;
+        return $this->afficherUneListe($rq,$rs,$args);
+    }
+
+    public function verifierReservation(Request $request, Response $response, $args)
+    {
+        if (empty($_SESSION['user'])|| $_SESSION['user']==-1) {
+            print_r("salut");
+            return $response->withRedirect('/index.php/connexion?res=Vous devez vous connecter');
+
+        }
+
+        $item = Item::where('id', '=', $args['id'])->first();
+        $list = Liste::where('no', '=', $item['liste_id'])->first();
+
+        $item->reservations = $_SESSION['user'];
+
+        $item->save();
+        $args['id'] = $item->id;
+
+        return $response->withRedirect('/index.php/item/' . $item['id'] . '?res=reservation%20Effectué');
+
+    }
+
 
 }
+

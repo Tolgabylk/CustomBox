@@ -23,4 +23,4 @@ $db->setAsGlobal();
 $db->bootEloquent();
 
 // Affichage de la landing page
-$app->get('/home', \mywishlist\controleur\ControlleurAffichage::class.':afficherAccueil')->setName('Accueil');
+$app->get('/home', \CustomBox\controler\ControlleurAffichage::class.':afficherAccueil')->setName('Accueil');
