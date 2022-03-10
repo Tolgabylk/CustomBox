@@ -24,3 +24,6 @@ $db->bootEloquent();
 
 // Affichage de la landing page
 $app->get('/home', \CustomBox\controler\ControlleurAffichage::class.':afficherAccueil')->setName('Accueil');
+
+//Affichage de la liste de la liste de souhait
+$app->get('/listes', '\CustomBox\controler\ControlleurAffichage:afficherListes')->setName('listeDesListes');
