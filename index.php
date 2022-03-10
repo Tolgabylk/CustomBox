@@ -21,9 +21,14 @@ $db->addConnection(parse_ini_file('src/conf/db.conf.ini'));
 
 $db->setAsGlobal();
 $db->bootEloquent();
+//new \CustomBox\controler\controlleuraffichage();
+
+//new \CustomBox\models\Boite();
+//new \CustomBox\vues\vueaccueil();
 
 // Affichage de la landing page
-$app->get('/home', \CustomBox\controler\ControlleurAffichage::class.':afficherAccueil')->setName('Accueil');
+$app->get('/home', \CustomBox\controler\controlleuraffichage::class.':afficherAccueil')->setName('Accueil');
 
 //Affichage de la liste de la liste de souhait
-$app->get('/listes', '\CustomBox\controler\ControlleurAffichage:afficherListes')->setName('listeDesListes');
+//$app->get('/listes', '\CustomBox\controler\controlleuraffichage:afficherListes')->setName('listeDesListes');
+$app->run();

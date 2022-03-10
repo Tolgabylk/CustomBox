@@ -1,8 +1,8 @@
 <?php
 
-namespace wishlist\modele;
+namespace CustomBox\models;
 
-class Produit extends \Illuminate\Database\Eloquent\models
+class Produit extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = 'produit';
     protected $primaryKey = 'id';
