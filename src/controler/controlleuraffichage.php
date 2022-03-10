@@ -101,7 +101,7 @@ class controlleuraffichage
     {
         if (empty($_SESSION['user'])|| $_SESSION['user']==-1) {
             print_r("salut");
-            return $response->withRedirect('/index.php/connexion?res=Vous devez vous connecter');
+            return $response->withRedirect('../CustomBox/connexion?res=Vous devez vous connecter');
 
         }
 
@@ -113,7 +113,7 @@ class controlleuraffichage
         $item->save();
         $args['id'] = $item->id;
 
-        return $response->withRedirect('/index.php/item/' . $item['id'] . '?res=reservation%20Effectué');
+        return $response->withRedirect('../CustomBox/item/' . $item['id'] . '?res=reservation%20Effectué');
 
     }
 

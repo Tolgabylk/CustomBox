@@ -18,17 +18,17 @@ class vueaccueil
         $token = $this->tab[0]['token'];
         
         if($_SESSION['user']!=-1){
-            $content.='<form method="POST" action="/index.php/deconnexion">
-                 <a class="deconnexion" href="/index.php/deconnexion">
-                     <button type="submit" name="submit" class="neon" href="/index.php/home" >Deconnexion</button>         
+            $content.='<form method="POST" action="../CustomBox/deconnexion">
+                 <a class="deconnexion" href="../CustomBox/deconnexion">
+                     <button type="submit" name="submit" class="neon" href="../CustomBox/home" >Deconnexion</button>         
                 </a>
              </form> ';
         }else{
             $content.='
-            <a class="connexion" href="/index.php/connexion">
+            <a class="connexion" href="../CustomBox/connexion">
                 Connexion
             </a>    
-            <a class="inscription" href="/index.php/inscription">
+            <a class="inscription" href="../CustomBox/inscription">
                 Inscription
             </a>';
         }
@@ -186,31 +186,31 @@ class vueaccueil
       </html>';
 
 	    $content.='<br>        
-            <a class="neon" href="/index.php/listes">
+            <a class="neon" href="../CustomBox/listes">
                 Afficher Listes
             </a>
             <br>
-            <a class="neon" href="/index.php/liste/1">
+            <a class="neon" href="../CustomBox/liste/1">
                 Afficher Liste 1
             </a>
             <br>
-            <a class="neon" href="/index.php/liste/2">
+            <a class="neon" href="../CustomBox/liste/2">
                 Afficher Liste 2
             </a>
             <br>
-            <a class="neon" href="/index.php/liste/3">
+            <a class="neon" href="../CustomBox/liste/3">
                 Afficher Liste 3
             </a>
             <br>
-            <a class="neon" href="/index.php/createItem">
+            <a class="neon" href="../CustomBox/createItem">
                 Cr&eacute;er un item
             </a>
             <br>
-            <a class="neon" href="/index.php/createList">
+            <a class="neon" href="../CustomBox/createList">
                 Cr&eacute;er une liste
             </a>
 			<br>
-            <a class="neon" href="/index.php/suppItem">
+            <a class="neon" href="../CustomBox/suppItem">
                 Supprimer un item
             </a>';
         

@@ -19,7 +19,7 @@ class VueConnexion{
         <div class="bg-img"></div>
         <h1 class="neon">Connexion</h1>
         <div class="contenu">        
-            <form method="POST" action="../index.php/connexion">
+            <form method="POST" action="../CustomBox/connexion">
                 <div>               
                     <label class="neon" >Adresse e-mail</label>                    
                     <input type="email" name="email" placeholder="Email" autocomplete="off">

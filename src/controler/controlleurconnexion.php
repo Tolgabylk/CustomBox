@@ -70,18 +70,18 @@ class ControlleurConnexion
                     if (password_verify($password, $row['password'])) {
                         // On créer la session et on redirige sur landing.php
                         $_SESSION['user'] = $row['id'];
-                        return $rs->withRedirect('/index.php/home');
+                        return $rs->withRedirect('../CustomBox/home');
                     } else {
-                        return $rs->withRedirect('/index.php/connexion?res=mot de passe incorrect');
+                        return $rs->withRedirect('../CustomBox/connexion?res=mot de passe incorrect');
                     }
                 } else {
-                    return $rs->withRedirect('/index.php/connexion?res=Email incorrect');
+                    return $rs->withRedirect('../CustomBox/connexion?res=Email incorrect');
                 }
             } else {
-                return $rs->withRedirect('/index.php/connexion?res=Veuillez vous inscrire');
+                return $rs->withRedirect('../CustomBox/connexion?res=Veuillez vous inscrire');
             }
         } else {
-            return $rs->withRedirect('/index.php/connexion?res=Veuillez renseignez tout les champs');
+            return $rs->withRedirect('../CustomBox/connexion?res=Veuillez renseignez tout les champs');
         }
     }
 
