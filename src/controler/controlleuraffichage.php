@@ -47,7 +47,7 @@ class controlleuraffichage
 
     public function afficherUneListe(Request $rq, Response $rs, $args): Response
     {
-        $l = \CustomBox\models\Liste::find($args['token']);
+        $l = \CustomBox\models\Boite::find($args['token']);
         $items = $l->items()->get();
         $liste[0] = $l->toArray();
         $liste[1] = $items;
