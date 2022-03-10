@@ -30,7 +30,7 @@ class controlleuraffichage
     public function afficherAccueil(Request $rq, Response $rs, $args): Response
     {
         $listes = \CustomBox\models\Boite::all();
-        $vue = new \CustomBox\vues\vueaccueil($listes->toArray());
+        $vue = new \CustomBox\vues\vueaccueil($listes->toArray(), $rq);
         $html = $vue->render();
         $rs->getBody()->write($html);
         return $rs;
@@ -39,7 +39,7 @@ class controlleuraffichage
     public function afficherListes(Request $rq, Response $rs, $args): Response
     {
         $boite = \CustomBox\models\Boite::all();
-        $vue = new \CustomBox\vues\vueparticipant($boite->toArray());
+        $vue = new \CustomBox\vues\vueparticipant($boite->toArray(), $rq);
         $html = $vue->render(1);
         $rs->getBody()->write($html);
         return $rs;
