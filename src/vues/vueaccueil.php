@@ -18,7 +18,7 @@ class vueaccueil
     private function afficherAccueil(): string
     {
         $content = '';
-        $token = $this->tab[0]['token'];
+
 
         if ($_SESSION['user'] != -1) {
             $content .= '<html style="font-size: 16px;">
@@ -159,7 +159,7 @@ class vueaccueil
                       <div class="u-layout-row">
                         <div class="u-container-style u-hidden-md u-hidden-sm u-hidden-xs u-layout-cell u-size-60 u-layout-cell-3">
                           <div class="u-container-layout u-container-layout-3">
-                            <a href="Accueil.html#carousel_56cf" data-page-id="815918998" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Nos Services</a>
+                            <a href="#" data-page-id="815918998" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Nos Services</a>
                           </div>
                         </div>
                       </div>
@@ -317,7 +317,7 @@ class vueaccueil
                       <div class="u-layout-row">
                         <div class="u-container-style u-hidden-md u-hidden-sm u-hidden-xs u-layout-cell u-size-60 u-layout-cell-3">
                           <div class="u-container-layout u-container-layout-3">
-                            <a href="Accueil.html#carousel_56cf" data-page-id="815918998" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Nos Services</a>
+                            <a href="#" data-page-id="815918998" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Nos Services</a>
                           </div>
                         </div>
                       </div>
@@ -340,19 +340,6 @@ class vueaccueil
         }
 
 
-        $content .= '<br>                   
-        <a class="neon" href="../CustomBox/createItem">
-            Cr&eacute;er un item
-        </a>
-        <br>
-        <a class="neon" href="../CustomBox/createList">
-            Cr&eacute;er une liste
-        </a>
-        <br>
-        <a class="neon" href="../CustomBox/suppItem">
-            Supprimer un item
-        </a>';
-
         return $content;
     }
 
@@ -361,7 +348,6 @@ class vueaccueil
     {
 
         $content = $this->afficherAccueil();
-        //$token=$this->tab[0]['token'];
         $base = $this->rq->getUri()->getBasePath();
         $css = $base . '/web/css/Accueil.css';
         $html = <<<END
